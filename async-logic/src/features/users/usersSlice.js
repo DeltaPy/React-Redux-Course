@@ -7,8 +7,8 @@ const initialState = [];
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
   try {
-    const reponse = await axios.get(USERS_URL);
-    return reponse.data;
+    const response = await axios.get(USERS_URL);
+    return response.data;
   } catch (error) {
     return error.message;
   }
