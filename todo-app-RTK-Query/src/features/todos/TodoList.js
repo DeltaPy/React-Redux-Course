@@ -12,6 +12,7 @@ import {
 const TodoList = () => {
   const [newTodo, setNewTodo] = useState("");
 
+  // const [getTodos] = useLazyGetTodosQuery();
   const {
     data: todos,
     isLoading,
@@ -63,7 +64,7 @@ const TodoList = () => {
               onChange={() =>
                 updateTodo({ ...todo, completed: !todo.completed })
               }
-            />
+              />
             <label htmlFor={todo.id}>{todo.title}</label>
           </div>
           <button className="trash" onClick={() => deleteTodo({ id: todo.id })}>
@@ -73,9 +74,10 @@ const TodoList = () => {
       );
     });
   } else if (isError) {
-    content = <p>{error}</p>;
+    content = <p>Error!</p>;
   }
-
+  
+  
   return (
     <main>
       <h1>Todo List</h1>
